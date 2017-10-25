@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/hoshikitsunoda/tooltip/issues"
   },
-  "homepage": "https://github.com/hoshikitsunoda/tooltip#readme"
+  "homepage": "https://github.com/hoshikitsunoda/tooltip#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
 }
