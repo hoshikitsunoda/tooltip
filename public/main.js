@@ -3,17 +3,13 @@ const getTips = () => {
     .then(res => res.json())
 }
 
-const renderTip = (tip) => {
-  const $box = document.createElement('div')
-  const $topLeft = document.createElement('div')
-  const $topRight = document.createElement('div')
-  const $bottomLeft = document.createElement('div')
-  const $bottomRight = document.createElement('div')
+const $box = document.createElement('div')
+const $topLeft = document.createElement('div')
+const $topRight = document.createElement('div')
+const $bottomLeft = document.createElement('div')
+const $bottomRight = document.createElement('div')
 
-  $topLeft.setAttribute('id', 'topLeft')
-  $topRight.setAttribute('id', 'topRight')
-  $bottomLeft.setAttribute('id', 'bottomLeft')
-  $bottomRight.setAttribute('id', 'bottomRight')
+const renderTip = (tip) => {
 
   const tips = tip.map((data) => {
     return data.tip
@@ -41,12 +37,18 @@ const renderTip = (tip) => {
 }
 
 const $topLeftButton = document.getElementById('topLeft')
+const $topRightButton = document.getElementById('topRight')
+const $bottomLeftButton = document.getElementById('bottomLeft')
+const $buttomRightButton = document.getElementById('bottomRight')
 
 getTips()
   .then(data => renderTip(data))
   .then(data => $topLeftButton.addEventListener('mouseenter', () => {
-    document.body.appendChild(data)
-  }))
-  .then(data => data => $topLeftButton.addEventListener('mouseout', () => {
-    document.body.removeChild(data)
+    document.body.appendChild($topLeft)
+  }), $topRightButton.addEventListener('mouseenter', () => {
+    document.body.appendChild($topRight)
+  }), $bottomLeftButton.addEventListener('mouseenter', () => {
+    document.body.appendChild($bottomLeft)
+  }), $buttomRightButton.addEventListener('mouseenter', () => {
+    document.body.appendChild($bottomRight)
   }))
