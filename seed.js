@@ -9,9 +9,9 @@ MongoClient.connect(url, (err, db) => {
   const tooltips = db.collection('tooltips')
 
   tooltips.insertMany([
-    { tip: 'To save' },
-    { tip: 'To undo' },
-    { tip: 'To redo' },
-    { tip: 'To escape' }
+    { tip: 'Click here to save!' },
+    { tip: 'Click here to undo!' },
+    { tip: 'Click here to redo' },
+    { tip: 'Click here to escape' }
   ])
 })
