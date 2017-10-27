@@ -7,16 +7,22 @@ body {
   margin: 0;
 }
 
+button {
+  background-color: #d3d4d6;
+  padding: 2rem;
+  border: none;
+}
+
 .tooltipped {
   position: relative;
   height: 100%;
   text-align: center;
 }
 
-.left:hover::after,
-.right:hover::after,
-.bottom:hover::after,
-.top:hover::after {
+.left:hover::before,
+.right:hover::before,
+.bottom:hover::before,
+.top:hover::before {
   content: attr(data-toggle);
   position: absolute;
   height: 40px;
@@ -26,24 +32,25 @@ body {
   border-radius: 0.5rem;
   text-align: center;
   padding-top: 2rem;
+  animation: fadein 0.2s ease-in;
 }
 
-.left:hover::after {
+.left:hover::before {
   right: 100%;
-  transform: translateY(50%);
+  transform: translateY(60%);
 }
 
-.right:hover::after {
+.right:hover::before {
   left: 100%;
-  transform: translateY(-100%);
+  transform: translateY(-130%);
 }
 
-.bottom:hover::after {
-  top: 80%;
-  transform: translateY(30%);
+.bottom:hover::before {
+  top: 100%;
+  transform: translateX(40%);
 }
 
-.top:hover::after {
+.top:hover::before {
   bottom: 100%;
   transform: translateX(-120%);
 }
@@ -52,22 +59,35 @@ body {
   position: absolute;
   left: 2em;
   top: 2em;
+  border-radius: 1rem;
+  box-shadow: 0.3rem 0.3rem 1rem #e4e6eb;
 }
 
 .top-right {
   position: absolute;
   right: 2em;
   top: 2em;
+  border-radius: 1rem;
+  box-shadow: -0.3rem 0.3rem 1rem #e4e6eb;
 }
 
 .bottom-left {
   position: absolute;
   left: 2em;
   bottom: 2em;
+  border-radius: 1rem;
+  box-shadow: 0.3rem 0.3rem 1rem #e4e6eb;
 }
 
 .bottom-right {
   position: absolute;
   right: 2em;
   bottom: 2em;
+  border-radius: 1rem;
+  box-shadow: 0.3rem 0.3rem 1rem #e4e6eb;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

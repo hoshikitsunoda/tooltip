@@ -3,7 +3,6 @@ const $topLeft = document.querySelector('.top-left')
 const $topRight = document.querySelector('.top-right')
 const $bottomRight = document.querySelector('.bottom-right')
 const $bottomLeft = document.querySelector('.bottom-left')
-const $buttons = [ $topLeft, $topRight, $bottomRight, $bottomLeft ]
 
 const getTips = () => {
   return fetch('/tooltips')
