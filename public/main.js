@@ -1,18 +1,14 @@
+const $box = document.querySelector('container')
+const $topLeft = document.querySelector('.top-left')
+const $topRight = document.querySelector('.top-right')
+const $bottomRight = document.querySelector('.bottom-right')
+const $bottomLeft = document.querySelector('.bottom-left')
+const $buttons = [ $topLeft, $topRight, $bottomRight, $bottomLeft ]
+
 const getTips = () => {
   return fetch('/tooltips')
     .then(res => res.json())
 }
-
-const $box = document.createElement('div')
-const $topLeft = document.createElement('div')
-const $topRight = document.createElement('div')
-const $bottomLeft = document.createElement('div')
-const $bottomRight = document.createElement('div')
-
-$topLeft.setAttribute('id', 'topLeftTip')
-$topRight.setAttribute('id', 'topRightTip')
-$bottomLeft.setAttribute('id', 'bottomLeftTip')
-$bottomRight.setAttribute('id', 'bottomRightTip')
 
 const renderTip = (tip) => {
 
@@ -26,43 +22,36 @@ const renderTip = (tip) => {
       const newResult = prop[i]
       result.push(newResult)
     }
-    console.log(result)
     return result
   }
 
   const theTip = pickTip(tip, tips)
 
-  $topLeft.textContent = theTip[0]
-  $topRight.textContent = theTip[1]
-  $bottomLeft.textContent = theTip[2]
-  $bottomRight.textContent = theTip[3]
-
-  $box.append($topLeft, $topRight, $bottomLeft, $bottomRight)
-  return $box
+  $topLeft.setAttribute('data-toggle', theTip[0])
+  $topRight.setAttribute('data-toggle', theTip[1])
+  $bottomLeft.setAttribute('data-toggle', theTip[2] + '!')
+  $bottomRight.setAttribute('data-toggle', theTip[3] + '!')
 }
-
-const $topLeftButton = document.getElementById('topLeft')
-const $topRightButton = document.getElementById('topRight')
-const $bottomLeftButton = document.getElementById('bottomLeft')
-const $buttomRightButton = document.getElementById('bottomRight')
 
 getTips()
   .then(data => renderTip(data))
-  .then(data => $topLeftButton.addEventListener('mouseover', () => {
-    document.body.appendChild($topLeft)
-  }), $topRightButton.addEventListener('mouseover', () => {
-    document.body.appendChild($topRight)
-  }), $bottomLeftButton.addEventListener('mouseover', () => {
-    document.body.appendChild($bottomLeft)
-  }), $buttomRightButton.addEventListener('mouseover', () => {
-    document.body.appendChild($bottomRight)
-  }))
-  .then(data => $topLeftButton.addEventListener('mouseleave', () => {
-    document.body.removeChild($topLeft)
-  }), $topRightButton.addEventListener('mouseleave', () => {
-    document.body.removeChild($topRight)
-  }), $bottomLeftButton.addEventListener('mouseleave', () => {
-    document.body.removeChild($bottomLeft)
-  }), $buttomRightButton.addEventListener('mouseleave', () => {
-    document.body.removeChild($bottomRight)
-  }))
+
+const buttons = document.querySelectorAll('.button')
+
+buttons.forEach(element => {
+  element.addEventListener('mouseover', event => {
+    const { top, bottom, left, right } = element.getBoundingClientRect()
+    if (top > 30 && window.innerWidth - right > 120) {
+      element.classList.remove('top')
+      element.classList.add('right')
+    } else if (bottom > 30 && window.innerWidth - right > 120) {
+      element.classList.remove('top')
+      element.classList.add('bottom')
+    } else if (left > 120 && window.innerHeight - top > 120) {
+      element.classList.remove('top')
+      element.classList.add('left')
+    } else {
+      element.classList.add('top')
+    }
+  })
+})

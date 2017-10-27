@@ -1,0 +1,73 @@
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  font-size: 10px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.tooltipped {
+  position: relative;
+  height: 100%;
+  text-align: center;
+}
+
+.left:hover::after,
+.right:hover::after,
+.bottom:hover::after,
+.top:hover::after {
+  content: attr(data-toggle);
+  position: absolute;
+  height: 40px;
+  width: 120px;
+  background-color: white;
+  border: 0.2rem solid grey;
+  border-radius: 0.5rem;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.left:hover::after {
+  right: 100%;
+  transform: translateY(50%);
+}
+
+.right:hover::after {
+  left: 100%;
+  transform: translateY(-100%);
+}
+
+.bottom:hover::after {
+  top: 80%;
+  transform: translateY(30%);
+}
+
+.top:hover::after {
+  bottom: 100%;
+  transform: translateX(-120%);
+}
+
+.top-left {
+  position: absolute;
+  left: 2em;
+  top: 2em;
+}
+
+.top-right {
+  position: absolute;
+  right: 2em;
+  top: 2em;
+}
+
+.bottom-left {
+  position: absolute;
+  left: 2em;
+  bottom: 2em;
+}
+
+.bottom-right {
+  position: absolute;
+  right: 2em;
+  bottom: 2em;
+}
