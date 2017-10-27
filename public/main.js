@@ -15,21 +15,10 @@ const renderTip = (tip) => {
     return data.tip
   })
 
-  const pickTip = (data, prop) => {
-    var result = []
-    for (var i = 0; i < data.length; i++) {
-      const newResult = prop[i]
-      result.push(newResult)
-    }
-    return result
-  }
-
-  const theTip = pickTip(tip, tips)
-
-  $topLeft.setAttribute('data-toggle', theTip[0])
-  $topRight.setAttribute('data-toggle', theTip[1])
-  $bottomLeft.setAttribute('data-toggle', theTip[2] + '!')
-  $bottomRight.setAttribute('data-toggle', theTip[3] + '!')
+  $topLeft.setAttribute('data-toggle', tips[0])
+  $topRight.setAttribute('data-toggle', tips[1])
+  $bottomLeft.setAttribute('data-toggle', tips[2] + '!')
+  $bottomRight.setAttribute('data-toggle', tips[3] + '!')
 }
 
 getTips()
