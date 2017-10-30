@@ -1,0 +1,30 @@
+{
+  "name": "tooltip",
+  "version": "1.0.0",
+  "description": "A website with tooltips for people who want to read the tips.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node seed.js",
+    "watch": "nodemon",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoshikitsunoda/tooltip.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoshikitsunoda/tooltip/issues"
+  },
+  "homepage": "https://github.com/hoshikitsunoda/tooltip#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}

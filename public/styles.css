@@ -1,0 +1,92 @@
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  font-size: 10px;
+  margin: 0;
+}
+
+button {
+  background-color: #d3d4d6;
+  padding: 2rem;
+  border: none;
+}
+
+.tooltipped {
+  position: relative;
+  height: 100%;
+  text-align: center;
+}
+
+.left:hover::before,
+.right:hover::before,
+.bottom:hover::before,
+.top:hover::before {
+  content: attr(data-toggle);
+  position: absolute;
+  height: 40px;
+  width: 120px;
+  background-color: white;
+  border: 0.2rem solid grey;
+  border-radius: 0.5rem;
+  text-align: center;
+  padding-top: 2rem;
+  animation: fadein 0.2s ease-in;
+}
+
+.left:hover::before {
+  right: 100%;
+  transform: translateY(60%);
+}
+
+.right:hover::before {
+  left: 100%;
+  transform: translateY(-130%);
+}
+
+.bottom:hover::before {
+  top: 100%;
+  transform: translateX(40%);
+}
+
+.top:hover::before {
+  bottom: 100%;
+  transform: translateX(-120%);
+}
+
+.top-left {
+  position: absolute;
+  left: 2em;
+  top: 2em;
+  border-radius: 1rem;
+  box-shadow: 0.3rem 0.3rem 1rem #e4e6eb;
+}
+
+.top-right {
+  position: absolute;
+  right: 2em;
+  top: 2em;
+  border-radius: 1rem;
+  box-shadow: -0.3rem 0.3rem 1rem #e4e6eb;
+}
+
+.bottom-left {
+  position: absolute;
+  left: 2em;
+  bottom: 2em;
+  border-radius: 1rem;
+  box-shadow: 0.3rem 0.3rem 1rem #e4e6eb;
+}
+
+.bottom-right {
+  position: absolute;
+  right: 2em;
+  bottom: 2em;
+  border-radius: 1rem;
+  box-shadow: 0.3rem 0.3rem 1rem #e4e6eb;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
